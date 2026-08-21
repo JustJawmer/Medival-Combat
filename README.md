@@ -8,7 +8,8 @@ Each weapon has their own benefits, negatives, stats and use.
 
 Some weapons have reach, some trade speed for damage. Some are faster, but exchange speed for lower damage, range or both.
 
-Saber: A weaker, but faster version of the Sword that protects you from 25% of taken damage. Can be used for Critical Hits.
+
+*Saber: A weaker, but faster version of the Sword that protects you from 25% of taken damage. Can be used for Critical Hits.
 
 Rapier: A weaker, but faster version of the Saber that protects you from 25% of taken damage. Can be used for Critical Hits.
 
@@ -24,4 +25,4 @@ Halberd: Much more powerful than any weapon, with some range advantage, but is a
 
 Great Sword: A slower and more powerful version of the Sword with more reach. Cannot be used for Critical Hits, but trades this for Sweeping Attacks.
 
-Dagger: A weaker version of the Rapier. Cannot be used for Critical Hits. Lower range than any weapon, but trades this for the Fastest Attacks.
+Dagger: A weaker version of the Rapier. Cannot be used for Critical Hits. Lower range than any weapon, but trades this for the Fastest Attacks.*
