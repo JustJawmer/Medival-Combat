@@ -1,0 +1,7 @@
+Here are all the licenses for this mod!
+
+Code by jawmer
+License: MIT
+
+Textures by jawmer
+License: CC BY 4.0
