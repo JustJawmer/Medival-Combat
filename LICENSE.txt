@@ -5,3 +5,10 @@ License: MIT
 
 Textures by jawmer
 License: CC BY 4.0
+
+Models by jawmer
+License: CC BY 4.0
+
+Specificaly Dummy Textures:
+By Minetest Game.
+License: CC BY-SA 3.0
