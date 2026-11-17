@@ -1,41 +1,3 @@
-local function is_great_sword(itemstack)
-    return itemstack:get_name():find("medival_combat:", 1, true) == 1
-        and itemstack:get_name():find("_great_sword", 1, true) ~= nil
-end
-
-local great_sword_area_attacking = false
-
-function medival_combat_great_sword_area_attack(target, hitter, time_from_last_punch, tool_capabilities, dir)
-    if great_sword_area_attacking then
-        return
-    end
-
-    if not hitter or not hitter:is_player()
-            or not is_great_sword(hitter:get_wielded_item()) then
-        return
-    end
-
-    local center = target:get_pos()
-    if not center then
-        return
-    end
-
-    local objects = minetest.get_objects_in_area(
-        vector.subtract(center, {x = 1.5, y = 1.5, z = 1.5}),
-        vector.add(center, {x = 1.5, y = 1.5, z = 1.5})
-    )
-
-    great_sword_area_attacking = true
-    for _, object in ipairs(objects) do
-        if object ~= target and object ~= hitter then
-            object:punch(hitter, time_from_last_punch, tool_capabilities, dir)
-        end
-    end
-    great_sword_area_attacking = false
-end
-
-minetest.register_on_punchplayer(medival_combat_great_sword_area_attack)
-
 minetest.register_tool("medival_combat:wooden_great_sword", {
     description = "Wooden Great Sword",
     inventory_image = "Wooden_Great_Sword.png",
@@ -46,7 +8,7 @@ minetest.register_tool("medival_combat:wooden_great_sword", {
         groupcaps = {
             snappy = {
                 times = {[2] = 1.6, [3] = 0.40},
-                uses = 15,
+                uses = 20,
                 maxlevel = 1
             },
         },
@@ -67,7 +29,7 @@ minetest.register_tool("medival_combat:stone_great_sword", {
         groupcaps = {
             snappy = {
                 times = {[2] = 1.6, [3] = 0.40},
-                uses = 25,
+                uses = 35,
                 maxlevel = 1
             },
         },
@@ -88,7 +50,7 @@ minetest.register_tool("medival_combat:bronze_great_sword", {
         groupcaps = {
             snappy = {
                 times = {[2] = 1.6, [3] = 0.40},
-                uses = 30,
+                uses = 50,
                 maxlevel = 1
             },
         },
@@ -109,7 +71,7 @@ minetest.register_tool("medival_combat:steel_great_sword", {
         groupcaps = {
             snappy = {
                 times = {[2] = 1.6, [3] = 0.40},
-                uses = 35,
+                uses = 55,
                 maxlevel = 1
             },
         },
@@ -130,7 +92,7 @@ minetest.register_tool("medival_combat:mese_great_sword", {
         groupcaps = {
             snappy = {
                 times = {[2] = 1.6, [3] = 0.40},
-                uses = 40,
+                uses = 60,
                 maxlevel = 1
             },
         },
@@ -151,7 +113,7 @@ minetest.register_tool("medival_combat:diamond_great_sword", {
         groupcaps = {
             snappy = {
                 times = {[2] = 1.6, [3] = 0.40},
-                uses = 50,
+                uses = 75,
                 maxlevel = 1
             },
         },

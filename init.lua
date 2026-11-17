@@ -8,6 +8,8 @@ dofile(minetest.get_modpath("medival_combat") .. "/battle_axes.lua")
 dofile(minetest.get_modpath("medival_combat") .. "/halberds.lua")
 dofile(minetest.get_modpath("medival_combat") .. "/daggers.lua")
 dofile(minetest.get_modpath("medival_combat") .. "/great_swords.lua")
+dofile(minetest.get_modpath("medival_combat") .. "/falxes.lua")
+dofile(minetest.get_modpath("medival_combat") .. "/glaives.lua")
 
 local airborn = {}
 
@@ -78,6 +80,17 @@ local function convert_mace_variants(player_name, airborne)
     })
 end
 
+local function convert_falx_variants(player_name, airborne)
+    convert_weapon_variants(player_name, airborne, {
+        {"medival_combat:wooden_falx", "medival_combat:airborn_wooden_falx"},
+        {"medival_combat:stone_falx", "medival_combat:airborn_stone_falx"},
+        {"medival_combat:bronze_falx", "medival_combat:airborn_bronze_falx"},
+        {"medival_combat:steel_falx", "medival_combat:airborn_steel_falx"},
+        {"medival_combat:diamond_falx", "medival_combat:airborn_diamond_falx"},
+        {"medival_combat:mese_falx", "medival_combat:airborn_mese_falx"},
+    })
+end
+
 local function convert_battle_axe_variants(player_name, airborne)
     convert_weapon_variants(player_name, airborne, {
         {"medival_combat:wooden_battle_axe", "medival_combat:airborn_wooden_battle_axe"},
@@ -114,6 +127,7 @@ minetest.register_globalstep(function(dtime)
                 convert_rapier_variants(name, "yes")
                 convert_mace_variants(name, "yes")
                 convert_battle_axe_variants(name, "yes")
+                convert_falx_variants(name, "yes")
             end
         elseif node_def and node_def.walkable then
             airborn[name] = "no"
@@ -122,6 +136,7 @@ minetest.register_globalstep(function(dtime)
                 convert_rapier_variants(name, "no")
                 convert_mace_variants(name, "no")
                 convert_battle_axe_variants(name, "no")
+                convert_falx_variants(name, "no")
             end
         end
     end
@@ -231,6 +246,66 @@ minetest.register_craft({
     output = "medival_combat:diamond_saber 1",
     recipe = {
         {"", "default:diamond", ""},
+        {"", "default:diamond", ""},
+        {"default:diamond", "medival_combat:handle", ""}
+    }
+})
+
+minetest.register_craft({
+    type = "shaped",
+    output = "medival_combat:wooden_falx 1",
+    recipe = {
+        {"group:wood", "group:wood", ""},
+        {"", "group:wood", ""},
+        {"group:wood", "medival_combat:handle", ""}
+    }
+})
+
+minetest.register_craft({
+    type = "shaped",
+    output = "medival_combat:stone_falx 1",
+    recipe = {
+        {"group:stone", "group:stone", ""},
+        {"", "group:stone", ""},
+        {"group:stone", "medival_combat:handle", ""}
+    }
+})
+
+minetest.register_craft({
+    type = "shaped",
+    output = "medival_combat:bronze_falx 1",
+    recipe = {
+        {"default:bronze_ingot", "default:bronze_ingot", ""},
+        {"", "default:bronze_ingot", ""},
+        {"default:bronze_ingot", "medival_combat:handle", ""}
+    }
+})
+
+minetest.register_craft({
+    type = "shaped",
+    output = "medival_combat:steel_falx 1",
+    recipe = {
+        {"default:steel_ingot", "default:steel_ingot", ""},
+        {"", "default:steel_ingot", ""},
+        {"default:steel_ingot", "medival_combat:handle", ""}
+    }
+})
+
+minetest.register_craft({
+    type = "shaped",
+    output = "medival_combat:mese_falx 1",
+    recipe = {
+        {"default:mese_crystal", "default:mese_crystal", ""},
+        {"", "default:mese_crystal", ""},
+        {"default:mese_crystal", "medival_combat:handle", ""}
+    }
+})
+
+minetest.register_craft({
+    type = "shaped",
+    output = "medival_combat:diamond_falx 1",
+    recipe = {
+        {"default:diamond", "default:diamond", ""},
         {"", "default:diamond", ""},
         {"default:diamond", "medival_combat:handle", ""}
     }
@@ -593,6 +668,66 @@ minetest.register_craft({
         {"", "", ""},
         {"", "default:diamond", ""},
         {"medival_combat:handle", "", ""}
+    }
+})
+
+minetest.register_craft({
+    type = "shaped",
+    output = "medival_combat:wooden_glaive 1",
+    recipe = {
+        {"", "", "medival_combat:wooden_dagger"},
+        {"", "medival_combat:pole", ""},
+        {"", "", ""}
+    }
+})
+
+minetest.register_craft({
+    type = "shaped",
+    output = "medival_combat:stone_glaive 1",
+    recipe = {
+        {"", "", "medival_combat:stone_dagger"},
+        {"", "medival_combat:pole", ""},
+        {"", "", ""}
+    }
+})
+
+minetest.register_craft({
+    type = "shaped",
+    output = "medival_combat:bronze_glaive 1",
+    recipe = {
+        {"", "", "medival_combat:bronze_dagger"},
+        {"", "medival_combat:pole", ""},
+        {"", "", ""}
+    }
+})
+
+minetest.register_craft({
+    type = "shaped",
+    output = "medival_combat:steel_glaive 1",
+    recipe = {
+        {"", "", "medival_combat:steel_dagger"},
+        {"", "medival_combat:pole", ""},
+        {"", "", ""}
+    }
+})
+
+minetest.register_craft({
+    type = "shaped",
+    output = "medival_combat:mese_glaive 1",
+    recipe = {
+        {"", "", "medival_combat:mese_dagger"},
+        {"", "medival_combat:pole", ""},
+        {"", "", ""}
+    }
+})
+
+minetest.register_craft({
+    type = "shaped",
+    output = "medival_combat:diamond_glaive 1",
+    recipe = {
+        {"", "", "medival_combat:diamond_dagger"},
+        {"", "medival_combat:pole", ""},
+        {"", "", ""}
     }
 })
 
